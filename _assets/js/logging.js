@@ -13,7 +13,7 @@ ExLog.Exercise = Backbone.Model.extend({
         return {
               hours: ""
             , type: 'Corrida'
-            , date: this.today
+            , date: this.today()
         };
     },
 
@@ -92,10 +92,14 @@ ExLog.ExLogView = Backbone.View.extend({
     getValues: function(){
       var _hours = $.trim(this.hours.val());
       var _type = this.type.val();
-      var _date = this.date.val();
+      var _date = $.trim(this.date.val());
 
-      if(_hours === '' || isNaN(_hours)){
+      if(_hours === '' || isNaN(_hours) || _hours > 24){
         return {valid: false};
+      }
+
+      if(_date === ''){
+        _date = this.toToday();
       }
 
       if(_type === ''){
@@ -104,6 +108,11 @@ ExLog.ExLogView = Backbone.View.extend({
 
       return {valid: true, hours: _hours, type: _type, date: _date};
 
+    },
+
+    toToday: function(){
+      var reset = new ExLog.Exercise();
+      return reset.get('date');
     },
 
     clearFields: function(){
@@ -151,7 +160,6 @@ ExLog.RowView = Backbone.View.extend({
     },
 
     deleteRow: function(){
-      console.log("deleteRow.destroy é chamado");
       var element = this.$el;
       element.remove();
     }
