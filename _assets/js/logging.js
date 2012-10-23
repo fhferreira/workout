@@ -90,7 +90,7 @@ ExLog.ExLogView = Backbone.View.extend({
     },
 
     getValues: function(){
-      var _hours = this.hours.val();
+      var _hours = $.trim(this.hours.val());
       var _type = this.type.val();
       var _date = this.date.val();
 
