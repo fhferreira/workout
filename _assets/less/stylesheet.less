@@ -1,0 +1,45 @@
+// CSS Reset
+@import "reset.less";
+
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+// Grid system and page structure
+@import "grid.less";
+
+// Base CSS
+@import "type.less";
+@import "forms.less";
+@import "tables.less";
+
+// Components: common
+@import "sprites.less";
+
+// Components: Buttons & Alerts
+@import "buttons.less";
+@import "button-groups.less";
+
+//Components: Datepicker
+@import "datepicker.less";
+
+// Components: Misc
+@import "labels-badges.less";
+
+// Utility classes
+@import "utilities.less"; // Has to be last to override when necessary
+
+body {  font-family: @sansFontFamily; width: 600px; margin: 0 auto; margin-top: 100px; color: #999;
+		background: url('../img/bg.png') repeat;
+
+	h1 { text-align: center; font-size: 36pt; color: #363636; margin-bottom: 50px; text-shadow: 2px 2px 1px #444; }
+	fieldset { border: 2px dashed #ccc;
+		legend { font-size: 14pt; color: #999; }
+		section {
+			div, select { margin-right: 25px; }
+		}
+	 }
+	 table { margin-top: 50px;
+	 	thead { color: #333; }
+	  }
+}
