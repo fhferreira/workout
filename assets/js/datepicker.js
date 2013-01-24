@@ -186,7 +186,7 @@ onDOMReady(function(){
       a.className="datepickershow add-on";
       a.setAttribute('onclick','return showDatePicker("' + allElements[i].id + '")');
       var img = document.createElement('img');
-      img.src='_assets/img/calendar.png';
+      img.src='assets/img/calendar.png';
       img.title='Show calendar';
       a.appendChild(img);
       insertAfter(a, allElements[i]);
